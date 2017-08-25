@@ -8,7 +8,7 @@ var server = app.listen(port, function() {
     console.log('Our app is running on http://localhost:' + port);
 });
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public/Colors'));
 
 
 app.get('/', function (req, res) {
