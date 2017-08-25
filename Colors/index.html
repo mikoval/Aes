@@ -3,6 +3,26 @@
 </head>
 <style>
 body{margin:0px;}
+.left-color{
+	position: absolute;
+	left:0px;
+	top:0px;
+	background-color:lightgray;
+	padding:10px;
+	opacity: 0.5
+}
+.right-color{
+	position: absolute;
+	right:0px;
+	top:0px;
+	background-color:lightgray;
+	padding:10px;
+	opacity: 0.5;
+	text-align: right;
+}
+input{
+
+}
 </style>
 <script src = "p5.min.js"></script>
 <script src = "jquery-3.2.1.min.js"></script>
@@ -12,5 +32,17 @@ body{margin:0px;}
 </head>
 <body>
 <div id = "container"></div>
+<div class="left-color">
+Color 1 <br>
+R: <input id="c1-r" type="text"><br>
+G: <input id="c1-g" type="text"><br>
+B: <input id="c1-b" type="text"><br>
+</div>
+<div class="right-color">
+Color 2 <br>
+<input id="c2-r" type="text">:R<br>
+<input id="c2-g" type="text">:G<br>
+<input id="c2-b" type="text">:B<br>
+</div>
 </body>
 </html>

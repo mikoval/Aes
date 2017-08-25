@@ -11,7 +11,7 @@ function createRGBRamp(c1, c2, n){
 		var b = c1.b + db * i/n;
 		arr.push({r:r, g:g, b:b});
 	}
-	console.log(arr);
+	
 	return arr;
 }
 function createLABRamp(c1, c2, n){
@@ -21,7 +21,6 @@ function createLABRamp(c1, c2, n){
 	arr1 = rgb2lab(arr1);
 	arr2 = rgb2lab(arr2);
 	tmp  = lab2rgb(arr1);
-	console.log(tmp);
 
 	
 	c1 = {l:arr1[0], a:arr1[1], b:arr1[2]};
@@ -29,24 +28,29 @@ function createLABRamp(c1, c2, n){
 
 	
 
+
+	
+	var arr = interpolate(c1, c2, n);
+	
+
+
+	return arr;
+}
+function interpolate(c1, c2,n){
 	var arr = [];
 	var dl = c2.l - c1.l;
 	var da = c2.a - c1.a;
 	var db = c2.b - c1.b;
-
 	for(var i = 0; i <= n; i++){
 
-		var l = c1.l + dl * i/n;
-		var a = c1.a + da * i/n;
-		var b = c1.b + db * i/n;
+		var l = c1.l + 30 * sin(2*PI * i/n) + dl * i/n;
+		var a = c1.a + 15 * sin(4*PI * i/n) + da * i/n;
+		var b = c1.b + 10 * sin(2*PI * i/n) + db * i/n;
 
 		var tmp =[ l, a, b];
 		tmp  = lab2rgb(tmp);
-		console.log(tmp);
 
 		arr.push({r:tmp[0], g:tmp[1], b:tmp[2]});
 	}
-
-	console.log(arr);
 	return arr;
 }
