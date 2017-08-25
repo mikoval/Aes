@@ -10,8 +10,8 @@ function setup() {
 
     var myCanvas = createCanvas(width, height);
     myCanvas.parent('container');
-    color1 = {r:0, g:120, b:240};
-    color2 = {r:255, g:100, b:130};
+    color1 = {r:0, g:120, b:100};
+    color2 = {r:200 , g:100, b:130};
     n = 30;
     ramp1 = createLABRamp(color1, color2, n);
     ramp2 = createRGBRamp(color1, color2, n);
@@ -22,6 +22,7 @@ function setup() {
     $("#c2-r").val(color2.r);
     $("#c2-g").val(color2.g);
     $("#c2-b").val(color2.b);
+    $("#n").val(n);
     bindListeners();
 }
 function draw(){
@@ -37,6 +38,7 @@ function bindListeners(){
     $("#c2-r").on("change", function(){color2.r = parseInt($(this).val()); updateColors();})
     $("#c2-g").on("change", function(){color2.g = parseInt($(this).val()); updateColors();})
     $("#c2-b").on("change", function(){color2.b = parseInt($(this).val()); updateColors();})
+    $("#n").on("change", function(){n = parseInt($(this).val()); updateColors();})
 }
 
 function drawRamps(){
@@ -51,7 +53,7 @@ function drawRamps(){
     }
 }
 function updateColors(){
-    console.log(color1);
     ramp1 = createLABRamp(color1, color2, n);
+
     ramp2 = createRGBRamp(color1, color2, n);
 }

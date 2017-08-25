@@ -20,6 +20,30 @@ body{margin:0px;}
 	opacity: 0.5;
 	text-align: right;
 }
+.n-colors{
+	background-color:lightgray;
+	opacity: 0.5;
+	position: absolute;
+	top: 0px;
+	left:50%;
+	width:150px;
+
+	padding:10px;
+	margin-left:-80px;
+}
+.n-colors input{
+	width:100px;
+}
+#veronoi{
+	position: absolute;
+	bottom: 30px;
+	left:50%;
+	width:150px;
+	height:40px;
+	padding:10px;
+	border-radius: 10px;
+	margin-left:-80px;
+}
 input{
 
 }
@@ -44,5 +68,18 @@ Color 2 <br>
 <input id="c2-g" type="text">:G<br>
 <input id="c2-b" type="text">:B<br>
 </div>
+<div class="n-colors">
+Number of Colors <br>
+N: <input id="n" type="text">
+
+</div>
+<button id = "veronoi"href="veronoi.html">Veronoi</button>
+<script>
+	$("#veronoi").on("click", function(){
+		var c1 = encodeURIComponent(JSON.stringify(color1));
+		var c2 = encodeURIComponent(JSON.stringify(color2));
+		window.location = "veronoi.html?c1="+c1+"&c2="+c2+"&n="+n;
+	})
+</script>
 </body>
 </html>
