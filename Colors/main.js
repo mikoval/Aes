@@ -15,7 +15,7 @@ function setup() {
     n = 100;
     ramp1 = createLABRamp(color1, color2, n);
     ramp2 = createRGBRamp(color1, color2, n);
-    
+    noStroke();
     
 }
 function draw(){
@@ -26,14 +26,14 @@ function draw(){
 }
 
 function drawRamps(){
-    noStroke();
+    
     for (var i = 0; i < ramp1.length; i++){
         fill(ramp1[i].r, ramp1[i].g, ramp1[i].b);
-        rect(i * width/ramp1.length,0, width/ramp1.length, height/2);
+        rect(i * width/ramp1.length,0, width/ramp1.length + 1, height/2);
     }
     for (var i = 0; i < ramp2.length; i++){
         fill(ramp2[i].r, ramp2[i].g, ramp2[i].b);
-        rect(i * width/ramp2.length,height/2, width/ramp2.length, height/2);
+        rect(i * width/ramp2.length,height/2, width/ramp2.length + 1, height/2);
     }
 }
 

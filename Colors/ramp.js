@@ -24,23 +24,23 @@ function createLABRamp(c1, c2, n){
 	console.log(tmp);
 
 	
-	c1 = {r:arr1[0], g:arr1[1], b:arr1[2]};
-	c2 = {r:arr2[0], g:arr2[1], b:arr2[2]};
+	c1 = {l:arr1[0], a:arr1[1], b:arr1[2]};
+	c2 = {l:arr2[0], a:arr2[1], b:arr2[2]};
 
 	
 
 	var arr = [];
-	var dr = c2.r - c1.r;
-	var dg = c2.g - c1.g;
+	var dl = c2.l - c1.l;
+	var da = c2.a - c1.a;
 	var db = c2.b - c1.b;
 
 	for(var i = 0; i <= n; i++){
 
-		var r = c1.r + dr * i/n;
-		var g = c1.g + dg * i/n;
+		var l = c1.l + dl * i/n;
+		var a = c1.a + da * i/n;
 		var b = c1.b + db * i/n;
 
-		var tmp =[ r, g, b];
+		var tmp =[ l, a, b];
 		tmp  = lab2rgb(tmp);
 		console.log(tmp);
 
