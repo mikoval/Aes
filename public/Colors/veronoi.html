@@ -206,7 +206,7 @@
             
             var dotGeometry = new THREE.Geometry();
             dotGeometry.vertices.push(new THREE.Vector3( 0, 0, 0));
-            var dotMaterial = new THREE.PointsMaterial( { size: 20, sizeAttenuation: false } );
+            var dotMaterial = new THREE.PointsMaterial( { size: 10, sizeAttenuation: false } );
             var dot = new THREE.Points( dotGeometry, dotMaterial );
             dot.position.x = x;
             dot.position.y = y;
