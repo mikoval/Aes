@@ -11,7 +11,7 @@ function createRGBRamp(c1, c2, n){
 		var b = c1.b + db * i/n;
 		arr.push({r:r, g:g, b:b});
 	}
-	
+
 	return arr;
 }
 function createLABRamp(c1, c2, n){
@@ -60,6 +60,20 @@ function interpolate(c1, c2,n){
 
 		arr.push({r:tmp[0], g:tmp[1], b:tmp[2]});
 	}
-	console.log(arr);
+		var str = ""
+	for(var i = 0; i < arr.length; i++){
+		str += arr[i].r + ", "
+	}
+	console.log(str);
+	var str = ""
+	for(var i = 0; i < arr.length; i++){
+		str += arr[i].g + ", "
+	}
+	console.log(str);
+	var str = ""
+	for(var i = 0; i < arr.length; i++){
+		str += arr[i].b + ", "
+	}
+	console.log(str);
 	return arr;
 }

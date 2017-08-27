@@ -52,6 +52,7 @@
     var point = null;
     var points = [];
     var cones = [];
+    var showPoints = true;
     alert("Click anywhere to start!\nClick on the dots to move them")
     init();
     animate();
@@ -91,9 +92,7 @@
         c2 = decodeURIComponent(c2);
         color2 = JSON.parse(c2);
         n = parseInt(arr[2].split("=")[1]);
-        console.log(color1)
-        console.log(color2)
-        console.log(n);
+
         ramp = createLABRamp(color1, color2, n);
         /*
         material = new THREE.MeshBasicMaterial({color:0xFF0000});
@@ -118,6 +117,7 @@
         window.addEventListener("mousedown", onMouseDown, false);
         window.addEventListener("mousemove", onMouseMove, false);
         window.addEventListener("mouseup", onMouseUp, false);
+        window.addEventListener("keypress", onKeyPress, false);
        
     }
     function animate() {
@@ -132,7 +132,18 @@
         
         
         camera.lookAt(scene.position);
+        if(showPoints){
+            for(var i= 0; i < points.length; i++){
+                points[i].visible = true;
+            }
+        }
+        else{
+           
+            for(var i= 0; i < points.length; i++){
+                points[i].visible = false;
+            }
         
+        }
         renderer.render(scene, camera);
     }
     
@@ -146,6 +157,9 @@
     function onMouseUp(event) {
         selected = null;
         point = null;
+    }
+    function onKeyPress(event){
+        showPoints = !showPoints;
     }
    function onMouseDown(event) {
         var vector = new THREE.Vector3();
@@ -193,7 +207,7 @@
     }  
     function addCylinder(x,y){
             var randInd = Math.floor(Math.random()*ramp.length);
-            console.log(randInd);
+
             var color = ramp[randInd];
             material = new THREE.MeshBasicMaterial({color: new THREE.Color(color.r/255, color.g/255,color.b/255)});
             var cylinder = new THREE.Mesh( geometry, material );
