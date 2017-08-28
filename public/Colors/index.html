@@ -42,7 +42,17 @@ body{margin:0px;}
 	height:40px;
 	padding:10px;
 	border-radius: 10px;
-	margin-left:-80px;
+	margin-left:-160px;
+}
+#tree{
+	position: absolute;
+	bottom: 30px;
+	left:50%;
+	width:150px;
+	height:40px;
+	padding:10px;
+	border-radius: 10px;
+	margin-left:40px;
 }
 input{
 
@@ -74,11 +84,17 @@ N: <input id="n" type="range" min = "1" max = "10" value="5">
 
 </div>
 <button id = "veronoi"href="veronoi.html">Veronoi</button>
+<button id = "tree"href="tree.html">Tree</button>
 <script>
 	$("#veronoi").on("click", function(){
 		var c1 = encodeURIComponent(JSON.stringify(color1));
 		var c2 = encodeURIComponent(JSON.stringify(color2));
 		window.location = "veronoi.html?c1="+c1+"&c2="+c2+"&n="+n;
+	})
+	$("#tree").on("click", function(){
+		var c1 = encodeURIComponent(JSON.stringify(color1));
+		var c2 = encodeURIComponent(JSON.stringify(color2));
+		window.location = "tree.html?c1="+c1+"&c2="+c2+"&n="+n;
 	})
 </script>
 </body>
