@@ -422,7 +422,7 @@ function verletTree(x, y, depth, da, colors, rigid){
 			p2OBJ = points[p2.ind];
 			var p2 = p2.parent;
 			
-			springs.push(new verletStick( p1OBJ,p2OBJ, distance(p1OBJ, p2OBJ), 0.5) )
+			springs.push(new verletStick( p1OBJ,p2OBJ, distance(p1OBJ, p2OBJ), 1.0) )
 			count--;
 		}
 		
